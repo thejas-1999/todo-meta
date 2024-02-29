@@ -1,0 +1,19 @@
+.todos {
+  margin-top: 20px;
+}
+
+.todo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  border-radius: 5px;
+  background-color: rgba(87, 96, 111, 0.9);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+}
+
+.todo label {
+  flex: 1;
+  font-size: 1.2rem;
+}
