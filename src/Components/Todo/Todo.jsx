@@ -33,6 +33,12 @@ const Todo = () => {
     localStorage.setItem("shoplist", JSON.stringify(listItems));
   };
 
+  const handleDelete = (id) => {
+    const listItems = items.filter((item) => item.id !== id);
+    setItems(listItems);
+    localStorage.setItem("shoppinglist", JSON.stringify(listItems));
+  };
+
   return (
     <div className="todos">
       <ul>
@@ -46,11 +52,18 @@ const Todo = () => {
               />
             </div>
 
-            <label htmlFor="" onDoubleClick={() => handleCheck(item.id)}>
+            <label
+              style={item.checked ? { textDecoration: "line-through" } : null}
+              onDoubleClick={() => handleCheck(item.id)}
+            >
               {item.item}
             </label>
             <div className="right">
-              <FaTrashAlt role="button" tabIndex="0" />
+              <FaTrashAlt
+                role="button"
+                tabIndex="0"
+                onClick={() => handleDelete(item.id)}
+              />
             </div>
           </li>
         ))}
