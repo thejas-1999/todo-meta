@@ -41,33 +41,39 @@ const Todo = () => {
 
   return (
     <div className="todos">
-      <ul>
-        {items.map((item) => (
-          <li className="todo" key={item.id}>
-            <div className="left">
-              <input
-                type="checkbox"
-                onChange={() => handleCheck(item.id)}
-                checked={item.checked}
-              />
-            </div>
+      {items.length ? (
+        <ul>
+          {items.map((item) => (
+            <li className="todo" key={item.id}>
+              <div className="left">
+                <input
+                  type="checkbox"
+                  onChange={() => handleCheck(item.id)}
+                  checked={item.checked}
+                />
+              </div>
 
-            <label
-              style={item.checked ? { textDecoration: "line-through" } : null}
-              onDoubleClick={() => handleCheck(item.id)}
-            >
-              {item.item}
-            </label>
-            <div className="right">
-              <FaTrashAlt
-                role="button"
-                tabIndex="0"
-                onClick={() => handleDelete(item.id)}
-              />
-            </div>
-          </li>
-        ))}
-      </ul>
+              <label
+                style={item.checked ? { textDecoration: "line-through" } : null}
+                onDoubleClick={() => handleCheck(item.id)}
+              >
+                {item.item}
+              </label>
+              <div className="right">
+                <FaTrashAlt
+                  role="button"
+                  tabIndex="0"
+                  onClick={() => handleDelete(item.id)}
+                />
+              </div>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p style={{ marginTop: "2rem", fontSize: "30px" }} className="empty">
+          YOUR TO-DO'S ARE EMPTY
+        </p>
+      )}
     </div>
   );
 };
