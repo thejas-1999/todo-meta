@@ -7,7 +7,7 @@ import Todo from "./Components/Todo/Todo";
 
 function App() {
   const [items, setItems] = useState(
-    JSON.parse(localStorage.getItem(`shoplist`) || [])
+    JSON.parse(localStorage.getItem(`shoplist`) || "[]")
   );
 
   const setAndSaveItems = (newItems) => {
