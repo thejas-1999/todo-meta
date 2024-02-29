@@ -18,9 +18,14 @@
   font-size: 1.2rem;
   height: 40px;
   width: 40px;
-  background-color: rgba(112, 111, 211, 0.9);
+  background-color: rgba(191, 190, 233, 0.9);
   border: none;
   border-radius: 0 5px 5px 0;
   color: white;
   cursor: pointer;
+}
+
+.input button :focus,
+.input button :hover {
+  color: rgb(22, 30, 189);
 }

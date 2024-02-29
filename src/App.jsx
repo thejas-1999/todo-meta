@@ -6,28 +6,9 @@ import Form from "./Components/Form/Form";
 import Todo from "./Components/Todo/Todo";
 
 function App() {
-  const [items, setItems] = useState([
-    {
-      id: 1,
-      checked: false,
-      item: "item1",
-    },
-    {
-      id: 2,
-      checked: false,
-      item: "item2",
-    },
-    {
-      id: 3,
-      checked: true,
-      item: "item3",
-    },
-    {
-      id: 4,
-      checked: false,
-      item: "item4",
-    },
-  ]);
+  const [items, setItems] = useState(
+    JSON.parse(localStorage.getItem(`shoplist`))
+  );
 
   const setAndSaveItems = (newItems) => {
     setItems(newItems);
