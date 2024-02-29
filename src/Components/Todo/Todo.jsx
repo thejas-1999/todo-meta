@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { FaTrashAlt } from "react-icons/fa";
 import "../Todo/Todo.css";
 const Todo = () => {
   const [items, setItems] = useState([
@@ -23,18 +24,30 @@ const Todo = () => {
       item: "item4",
     },
   ]);
+
+  const handleCheck = (id) => {
+    const listItems = items.map((item) =>
+      item.id === id ? { ...item, checked: !item.checked } : item
+    );
+    setItems(listItems);
+  };
+
   return (
     <div className="todos">
       <ul>
         {items.map((item) => (
           <li className="todo" key={item.id}>
             <div className="left">
-              <input type="checkbox" checked={item.checked} />
+              <input
+                type="checkbox"
+                onChange={() => handleCheck(item.id)}
+                checked={item.checked}
+              />
             </div>
 
             <label htmlFor="">{item.item}</label>
             <div className="right">
-              <button>Delete</button>
+              <FaTrashAlt role="button" tabIndex="0" />
             </div>
           </li>
         ))}

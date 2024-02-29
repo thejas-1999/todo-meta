@@ -17,3 +17,50 @@
   flex: 1;
   font-size: 1.2rem;
 }
+
+.todo.checked {
+  background-color: rgba(131, 149, 167, 0.9);
+}
+
+.todo:hover {
+  background-color: rgba(113, 128, 147, 0.9);
+}
+
+.left {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.left input[type="checkbox"] {
+  margin-right: 10px;
+  width: 30px;
+  height: 30px;
+}
+
+.left label {
+  flex: 1;
+  font-size: 1.2rem;
+  color: #fff;
+}
+
+.right {
+  cursor: pointer;
+}
+
+.right svg {
+  width: 30px;
+  height: 30px;
+  color: black;
+}
+
+.right svg:focus,
+.right svg:hover {
+  color: red;
+}
+
+@media screen and (max-width: 600px) {
+  .app {
+    padding: 10px;
+  }
+}
