@@ -1,9 +1,11 @@
 import { FaPlus } from "react-icons/fa";
 import { useState } from "react";
+
 import "../Form/Form.css";
 
-const Form = () => {
+const Form = ({ addItem }) => {
   const [newItem, setNewItem] = useState("");
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!newItem) return;

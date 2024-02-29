@@ -1,44 +1,6 @@
-import { useState } from "react";
 import { FaTrashAlt } from "react-icons/fa";
 import "../Todo/Todo.css";
-const Todo = () => {
-  const [items, setItems] = useState([
-    {
-      id: 1,
-      checked: false,
-      item: "item1",
-    },
-    {
-      id: 2,
-      checked: false,
-      item: "item2",
-    },
-    {
-      id: 3,
-      checked: true,
-      item: "item3",
-    },
-    {
-      id: 4,
-      checked: false,
-      item: "item4",
-    },
-  ]);
-
-  const handleCheck = (id) => {
-    const listItems = items.map((item) =>
-      item.id === id ? { ...item, checked: !item.checked } : item
-    );
-    setItems(listItems);
-    localStorage.setItem("shoplist", JSON.stringify(listItems));
-  };
-
-  const handleDelete = (id) => {
-    const listItems = items.filter((item) => item.id !== id);
-    setItems(listItems);
-    localStorage.setItem("shoppinglist", JSON.stringify(listItems));
-  };
-
+const Todo = ({ items, handleCheck, handleDelete }) => {
   return (
     <div className="todos">
       {items.length ? (
@@ -64,6 +26,7 @@ const Todo = () => {
                   role="button"
                   tabIndex="0"
                   onClick={() => handleDelete(item.id)}
+                  aria-label={`Delete ${item.item}`}
                 />
               </div>
             </li>
