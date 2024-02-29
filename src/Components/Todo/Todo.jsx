@@ -30,6 +30,7 @@ const Todo = () => {
       item.id === id ? { ...item, checked: !item.checked } : item
     );
     setItems(listItems);
+    localStorage.setItem("shoplist", JSON.stringify(listItems));
   };
 
   return (
@@ -45,7 +46,9 @@ const Todo = () => {
               />
             </div>
 
-            <label htmlFor="">{item.item}</label>
+            <label htmlFor="" onDoubleClick={() => handleCheck(item.id)}>
+              {item.item}
+            </label>
             <div className="right">
               <FaTrashAlt role="button" tabIndex="0" />
             </div>
